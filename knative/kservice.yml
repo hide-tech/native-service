@@ -1,0 +1,19 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: native-service
+spec:
+  template:
+    spec:
+      containers:
+        - name: native-service
+          image: ghcr.io/hide-tech/native
+          ports:
+            - containerPort: 8080
+          resources:
+            requests:
+              cpu: '0.1'
+              memory: '128Mi'
+            limits:
+              cpu: '2'
+              memory: '512Mi'
